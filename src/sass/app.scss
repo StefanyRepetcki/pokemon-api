@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+// Variables
+@import 'variables';
+@import 'home';
+@import 'list';
+@import 'cards';
+
+* {
+  font-family: 'Fira Code', monospace;
+}
+
+i {
+  font-family: 'Font Awesome 5 Free';
+  font-size: 25px;
+  color: #FFFFFF;
+}
+
+body {
+  margin: 0;
+}
