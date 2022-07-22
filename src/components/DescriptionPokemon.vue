@@ -30,7 +30,7 @@
                         <span class="card__statname">{{ stat.stat.name | filterName }}</span>
                         <span class="card__basestat">
                             <input type="range" :value="stat.base_stat" id="range"
-                                :style="`background-size:${stat.base_stat}% 100%;`" />
+                                :style="`background-size:${stat.base_stat}% 100%;`" disabled />
                         </span>
                     </div>
                 </div>
