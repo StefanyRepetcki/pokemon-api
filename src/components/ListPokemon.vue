@@ -161,7 +161,6 @@ export default {
             try {
                 this.loading = true;
                 const { data } = await getPokemons();
-                // this.getPokemon(data.results);
                 this.nextPage = data.next;
                 data.results.forEach(pokemon => {
                     this.descriptionPokemon(pokemon.url);
@@ -176,7 +175,9 @@ export default {
         async descriptionPokemon(pokemon) {
             try {
                 const { data } = await getPokemons(pokemon);
-                this.pokemons.push(data);
+                if (!this.pokemons.some(p => p.id === data.id)) {
+                    this.pokemons.push(data);
+                }
             } catch (error) {
                 console.log(error);
             }
