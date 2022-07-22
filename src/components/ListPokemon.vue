@@ -41,7 +41,7 @@
                 </a>
             </div>
         </div>
-        <loading :loading="loading"></loading>
+        <loading :loading="loading" :scroll="loadingScroll"></loading>
     </div>
 </template>
 <script>
@@ -54,6 +54,7 @@ export default {
     data() {
         return {
             loading: false,
+            loadingScroll: false,
             nextPage: null,
             search: '',
             pokemons: [],
@@ -131,7 +132,7 @@ export default {
         },
         async loadPokemons() {
             try {
-                this.loading = true;
+                this.loadingScroll = true;
                 const { data } = await getPokemons(this.nextPage);
                 this.nextPage = data.next;
                 data.results.forEach(pokemon => {
@@ -140,7 +141,7 @@ export default {
             } catch (error) {
                 console.log(error);
             } finally {
-                this.loading = false;
+                this.loadingScroll = false;
             }
         },
         infiniteLoading() {
