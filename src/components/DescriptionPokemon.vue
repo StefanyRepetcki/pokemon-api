@@ -14,7 +14,7 @@
                 <hr>
             </div>
             <div class="card__description">
-                <p>{{ description.flavor_text_entries[0].flavor_text  | replaceCharacter }}</p>
+                <p>{{ description.flavor_text_entries[0].flavor_text | replaceCharacter }}</p>
                 <div class="card__types">
                     <div class="card__type" v-for="(type, indextype) in pokemon.types" :key="indextype">
                         <div :class="'icon icon__' + type.type.name"></div>
@@ -56,7 +56,7 @@ export default {
     },
     filters: {
         replaceCharacter(value) {
-           return value.replace('', '');
+            return value.replace('', '');
         },
         padStart: function (value) {
             return value.toString().padStart(3, '0');
@@ -206,6 +206,10 @@ input[type="range"]::-ms-track {
     box-shadow: none;
     border: none;
     background: transparent;
+}
+
+* {
+    cursor: default !important;
 }
 
 .card {
