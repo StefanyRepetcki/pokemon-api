@@ -28,7 +28,7 @@
                         </div>
                         <div class="card__body">
                             <div class="card__name">
-                                {{ pokemon.name }}
+                                {{ pokemon.name | namespaces}}
                             </div>
                             <div class="card__category">
                                 <span v-for="(type, indextype) in pokemon.types" :key="indextype"
@@ -67,6 +67,11 @@ export default {
     filters: {
         padStart: function (value) {
             return value.toString().padStart(3, '0');
+        },
+        namespaces: function (value) {
+            return value.replace(/-/g, ' ').replace(/\w\S*/g, function (txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
         }
     },
     watch: {
